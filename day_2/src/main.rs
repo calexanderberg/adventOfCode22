@@ -1,3 +1,4 @@
+use core::panic;
 use std::io::BufRead;
 
 fn main() {
@@ -38,7 +39,7 @@ fn part_one(x: &str, y: &str) -> i32  {
             total_points = total_points + 3;
             combination[1] = "C";
         },
-        _ => println!("ERROR")
+        _ => panic!(),
     }
 
     // Counts the outcome
@@ -83,7 +84,7 @@ fn part_two(x: &str, mut y: &str) -> i32 {
             y = options[i+1];
 
         },
-        _ => println!("ERROR")
+        _ => panic!(),
     }
 
     // Decision points
@@ -91,7 +92,7 @@ fn part_two(x: &str, mut y: &str) -> i32 {
         "A" => points_round = points_round + 1,
         "B" => points_round = points_round + 2,
         "C" => points_round = points_round + 3,
-        _ => println!("ERROR")
+        _ => panic!(),
     }
 
     return points_round;
