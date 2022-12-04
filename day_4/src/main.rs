@@ -37,16 +37,14 @@ fn part_two(s: &str) -> i32{
     for a in 0..max(list1.len(), list2.len()) {
         if max(list1.len(), list2.len()) == list2.len() {
             if list1.contains(&list2[a]){
-                contain += 1;
+                contain = 1;
             }
         } else {
             if list2.contains(&list1[a]){
-                contain += 1;
+                contain = 1;
             }
         }
     }
-
-    if contain != 0 { contain = 1; }
 
     return contain;
 }
