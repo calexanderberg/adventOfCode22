@@ -70,4 +70,8 @@ fn tail_trail(vector: Vec<Vec<i32>>, mut tail: Vec<Vec<i32>>, current_head: usiz
     }
     return 0;
 }
+
+fn is_neightbor(){
+    
+}
  
