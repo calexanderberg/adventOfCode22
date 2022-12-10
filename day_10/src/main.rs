@@ -45,7 +45,6 @@ fn execute(mut cycle: Vec<i32>, mut register: i32, mut signal: i32, mut counter:
 
         if counter % 40 == 0 {
             print!("\n");
-            //println!("{counter}: {:?}", sprite);
             crt = 0;
         }
         counter += 1;
