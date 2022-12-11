@@ -67,8 +67,8 @@ fn update_sprite(next_val: i32) -> [i32; 3] {
 
 fn draw_crt(crt_post: i32, sprite: [i32; 3]) -> char {
     if sprite.contains(&crt_post) {
-        return '#'
+        return '🎁'
     } else {
-        return ' '
+        return '🎄'
     }
 }
