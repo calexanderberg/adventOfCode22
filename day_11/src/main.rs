@@ -1,14 +1,27 @@
-use std::str::FromStr;
+use std::{fs::read_to_string, str::FromStr};
+
+struct Monkey {
+    id: usize,
+    worry: String,
+    op: String,
+    divisor: i32,
+    true_monkey: usize,
+    false_monkey: usize
+}
 
 fn main() {
-   let _test_monkeys: Vec<Vec<&str>> = vec![
-    vec!["0", "79 98", "old * 19", "23", "2", "3"],
-    vec!["1", "54 65 75 74", "old + 6", "19", "2", "0"],
-    vec!["2", "79 60 97", "old * old", "13", "1", "3"],
-    vec!["3", "74", "old + 3", "17", "0", "1"],
+   let _test_monkeys: Vec<Monkey> = vec![
+    { Monkey 
+        {id: 0, worry: String::from("79 98"), op: String::from("Old * 19"), divisor: 23, true_monkey: 2, false_monkey: 3,}},
+    { Monkey 
+        {id: 1, worry: String::from("54 65 75 74"), op: String::from("Old + 6"), divisor: 19, true_monkey: 2, false_monkey: 0,}},
+    { Monkey 
+        {id: 2, worry: String::from("79 60 97"), op: String::from("Old * old"), divisor: 13, true_monkey: 1, false_monkey: 3,}},
+    { Monkey 
+        {id: 3, worry: String::from("74"), op: String::from("Old + 3"), divisor: 17, true_monkey: 0, false_monkey: 1,}}
    ];
 
-   let _input_monkeys: Vec<Vec<&str>> = vec![
+   let input_monkeys: Vec<Vec<&str>> = vec![
     vec!["0", "66 59 64 51", "old * 3", "2", "1", "4"],
     vec!["1", "67 61", "old * 19", "7", "3", "5"],
     vec!["2", "86 93 80 70 71 81 56", "old + 2", "11", "4", "0"],
@@ -18,32 +31,42 @@ fn main() {
     vec!["6", "82 98 77 94 86 81", "old + 7", "17", "7", "2"],
     vec!["7", "54 95 70 93 88 93 63 50", "old + 4", "13", "2", "0"],
    ];
-
+ 
    monkey_round(_test_monkeys, 20);
 }
 
-fn monkey_round(mut monkeys: Vec<Vec<&str>>, rounds: u32) -> u32{
+fn monkey_round(mut monkeys: Vec<Monkey>, rounds: u32) -> u32 {
     let mut passes = 0;
     let mut inspect: Vec<u32> = vec![0,0,0,0,0,0,0,0,0];
    
     for _a in 0..rounds+1 {
+        println!("Round: {_a}");
         for n in 0..monkeys.len() {
-            let items: Vec<&str> = monkeys[n][1].clone().split(" ").collect();
-            let instruction: Vec<&str> = monkeys[n][2].clone().split(" ").collect();
+        
+            let temp_worry = monkeys[n].worry.clone();
+            let temp_op = monkeys[n].op.clone();
+
+            let items: Vec<&str> = temp_worry.split(" ").collect();
+            let instruction: Vec<&str> = temp_op.split(" ").collect();
+
             for x in 0..items.len() {
+
                 let item = items[x];
                 let new_val = operate_item(instruction.clone(), item);
-                if test_item(new_val, monkeys[n][3]) {
-                    let throw_to_monkey: usize = FromStr::from_str(monkeys[n][4].clone()).unwrap();
-                    monkeys[throw_to_monkey] = throw_item(monkeys[throw_to_monkey].clone(), item);
-                    inspect[n] += 1;
-                    monkeys[n] = remove_item(monkeys[n].clone(), item);
+                let mut throw_to_monkey = 0;
+                
+                if test_item(new_val, monkeys[n].divisor) {
+                    throw_to_monkey = monkeys[n].true_monkey;
                 } else {
-                    let throw_to_monkey: usize = FromStr::from_str(monkeys[n][5].clone()).unwrap();
-                    monkeys[throw_to_monkey] = throw_item(monkeys[throw_to_monkey].clone(), item);
-                    inspect[n] += 1;
-                    monkeys[n] = remove_item(monkeys[n].clone(), item);
+                    throw_to_monkey = monkeys[n].false_monkey;
                 }
+
+                monkeys[throw_to_monkey].worry = throw_item(monkeys[throw_to_monkey].worry.clone(), new_val);
+
+                inspect[n] += 1;
+
+                //monkeys[n].worry = remove_item(monkeys[n].worry.clone(), item)
+
             }
         }
     }
@@ -51,6 +74,8 @@ fn monkey_round(mut monkeys: Vec<Vec<&str>>, rounds: u32) -> u32{
     for a in 0..inspect.len() {
         passes *= inspect[a];
     }
+    
+    println!("Inspect: {:?}", inspect);
     println!("Passes: {}", passes);
     return passes
 }
@@ -72,24 +97,17 @@ fn operate_item(instruction: Vec<&str>, item: &str) -> u32 {
     }
 }
 
-fn test_item(item: u32, test_value: &str) -> bool {
-    let val2: u32 = FromStr::from_str(test_value).unwrap();
-    return item % val2 == 0
+fn test_item(item: u32, test_value: i32) -> bool {
+    return item % test_value as u32 == 0
 }
  
-fn throw_item<'a>(monkey: Vec<&'a str>, item: &str) ->  Vec<&'a str> {
-    let mut new_monkey = monkey.clone();
-    let mut new_val = new_monkey[1].to_owned();
-    new_val.push_str(" ");
-    new_val.push_str(item);
-    new_monkey[1] = new_val.as_str();
-    print!("item: {}, thrown to {:?}", item, new_monkey[0]);
-    return new_monkey;
+fn throw_item(mut monkey: String, item: u32) ->  String {
+    monkey.push_str(" ");
+    monkey.push_str(&item.to_string());
+    return monkey;
 }
-fn remove_item<'a>(mut monkey: Vec<&'a str>, item: &'a str) -> Vec<&'a str> {
-    let mut items: Vec<&str> = monkey[1].clone().split(" ").collect();
-    let index = items.iter().position(|x| x == &item).unwrap();
-    items.remove(index);
-    monkey[1] = &items.join(" ").to_string();
+
+fn remove_item(mut monkey: String, item: &str) ->  String {
+    monkey = monkey.replace(item, "");
     return monkey;
 }
