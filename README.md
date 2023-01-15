@@ -4,10 +4,8 @@ Note that I will work on this as the time allows. I do not currently have the ab
 
 
 ## Tree structure
-├── Rust
-|   └── 2022
-|       └── Day_* 
-├── Go
-|   └── 2022
-|       └── Day_* 
+├── 2022
+|   └── Day_* 
+├── 2021
+|   └── Day_* 
 └── README.md
