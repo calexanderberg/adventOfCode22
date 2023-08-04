@@ -35,7 +35,6 @@ def count_3_increase(filename):
     for i in range(1, len(list_of_3)):
         if list_of_3[i] > list_of_3[i-1]:
             counter += 1
-
     return counter
 
 
