@@ -18,6 +18,6 @@ instruction _h val = val
 main :: IO ()
 main = do
   file <- readFile "input.txt"
-  let part2 = readInstruction (lines file) [0, 0, 0]
   putStrLn $ "Part 1: " ++ show (product (readInstruction (lines file) [0, 0]))
+  let part2 = readInstruction (lines file) [0, 0, 0]
   putStrLn $ "Part 2: " ++ show (head part2 * (part2 !! 1))
