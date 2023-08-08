@@ -7,9 +7,6 @@ average :: [Int] -> [Int] -> [Int]
 average [_h] sumList = sumList
 average (h : t) sumList = average t (sumList ++ [sum (take 3 (h : t))])
 
-countInc :: [Int] -> Int
-countInc list = count list 0
-
 count :: [Int] -> Int -> Int
 count [_h] num = num
 count (h : t) num = count t (num + fromEnum (head t > h))
@@ -17,7 +14,7 @@ count (h : t) num = count t (num + fromEnum (head t > h))
 main :: IO ()
 main = do
   file <- readFile "input.txt"
-  let val1 = countInc (readInputFile file)
-  let val2 = countInc (average (readInputFile file) [])
+  let val1 = count (readInputFile file) 0
+  let val2 = count (average (readInputFile file) []) 0
   putStrLn $ "Part 1: " ++ show val1
   putStrLn $ "Part 2: " ++ show val2
