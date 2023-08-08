@@ -3,9 +3,6 @@ module Day1 where
 readInputFile :: String -> [Int]
 readInputFile content = map read (lines content)
 
-newList :: [Int] -> [Int]
-newList list = average list []
-
 average :: [Int] -> [Int] -> [Int]
 average [] sumList = sumList
 average [_h] sumList = sumList
@@ -23,6 +20,6 @@ main :: IO ()
 main = do
   file <- readFile "input.txt"
   let val1 = countInc (readInputFile file)
-  let val2 = countInc (newList (readInputFile file))
+  let val2 = countInc (average (readInputFile file) [])
   putStrLn $ "Part 1: " ++ show val1
   putStrLn $ "Part 2: " ++ show val2
