@@ -9,7 +9,6 @@ instruction ["forward", t] [x, y] = [x + read t, y]
 instruction ["forward", t] [x, y, z] = [x + read t, y + (read t * z), z]
 instruction ["up", t] val = init val ++ [last val - read t]
 instruction ["down", t] val = init val ++ [last val + read t]
-instruction _h val = val
 
 main :: IO ()
 main = do
