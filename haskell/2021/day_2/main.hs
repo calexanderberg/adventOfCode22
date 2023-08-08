@@ -5,14 +5,10 @@ readInstruction [_h] val = val
 readInstruction (h : t) val = readInstruction t (instruction (words h) val)
 
 instruction :: [String] -> [Int] -> [Int]
--- Part 1 code
 instruction ["forward", t] [x, y] = [x + read t, y]
-instruction ["up", t] [x, y] = [x, y - read t]
-instruction ["down", t] [x, y] = [x, y + read t]
--- Part 2 code
 instruction ["forward", t] [x, y, z] = [x + read t, y + (read t * z), z]
-instruction ["up", t] [x, y, z] = [x, y, z - read t]
-instruction ["down", t] [x, y, z] = [x, y, z + read t]
+instruction ["up", t] val = init val ++ [last val - read t]
+instruction ["down", t] val = init val ++ [last val + read t]
 instruction _h val = val
 
 main :: IO ()
