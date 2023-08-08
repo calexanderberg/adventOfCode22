@@ -1,4 +1,4 @@
-module Day1 where
+module Day2 where
 
 readInstruction :: [String] -> [Int] -> [Int]
 readInstruction [_h] val = val
