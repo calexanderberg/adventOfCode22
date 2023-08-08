@@ -4,7 +4,6 @@ readInputFile :: String -> [Int]
 readInputFile content = map read (lines content)
 
 average :: [Int] -> [Int] -> [Int]
-average [] sumList = sumList
 average [_h] sumList = sumList
 average (h : t) sumList = average t (sumList ++ [sum (take 3 (h : t))])
 
@@ -12,7 +11,6 @@ countInc :: [Int] -> Int
 countInc list = count list 0
 
 count :: [Int] -> Int -> Int
-count [] num = num
 count [_h] num = num
 count (h : t) num = count t (num + fromEnum (head t > h))
 
