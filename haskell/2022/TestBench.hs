@@ -11,29 +11,29 @@ readInputFile = readFile
 
 spec :: Spec
 spec = do
-  describe "Day solutions" $ do
+  describe "2022 solutions" $ do
     describe "Day 1" $ do
       input <- runIO (readInputFile "day_1/input.txt")
-      it "part1 should return the expected value" $
+      it "part 1 should return the expected value" $
         Day1.part1 input `shouldBe` 68802
 
-      it "part2 should return the expected value" $
+      it "part 2 should return the expected value" $
         Day1.part2 input `shouldBe` 205370
 
     describe "Day 2" $ do
       input <- runIO (readInputFile "day_2/input.txt")
-      it "part1 should return the expected value" $
+      it "part 1 should return the expected value" $
         Day2.part1 input `shouldBe` 14069
 
-      it "part2 should return the expected value" $
+      it "part 2 should return the expected value" $
         Day2.part2 input `shouldBe` 12411
 
     describe "Day 3" $ do
       input <- runIO (readInputFile "day_3/input.txt")
-      it "part1 should return the expected value" $
+      it "part 1 should return the expected value" $
         Day3.part1 input `shouldBe` 7553
 
-      it "part2 should return the expected value" $
+      it "part 2 should return the expected value" $
         Day3.part2 input `shouldBe` 2758
 
 benchmarkPart :: String -> (String -> Int) -> FilePath -> Benchmark
