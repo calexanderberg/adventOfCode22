@@ -23,8 +23,8 @@ findChar strings
 alphabet :: String
 alphabet = ['a' .. 'z'] ++ ['A' .. 'Z']
 
-main :: IO ()
-main = do
-  file <- readFile "input.txt"
-  putStrLn $ "Part 1: " ++ show (checkRuck (lines file))
-  putStrLn $ "Part 2: " ++ show (checkRucks (lines file))
+part1 :: String -> Int
+part1 file = checkRuck (lines file)
+
+part2 :: String -> Int
+part2 file = checkRucks (lines file)
