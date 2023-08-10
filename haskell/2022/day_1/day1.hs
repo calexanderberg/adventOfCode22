@@ -1,4 +1,4 @@
-module Day1 where
+module Day_1.Day1 where
 
 import Data.List (sort)
 
