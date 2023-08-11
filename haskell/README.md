@@ -11,6 +11,6 @@ Below is the list of years adn the current status of the projects. Click each re
 
 Year | Status 
 ---|---
-[2022](/2022) | in progress
-[2021](/2021) | -
-[2020](/2020) | -
+2022 | in progress
+2021 | -
+2020 | -
