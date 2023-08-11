@@ -11,7 +11,7 @@ Below is a list of days, their status, time complexity, average execution time, 
 
 Day | Status | Time complexity | Mean execution time (ms) |  line count | notes
 ---|--- | --- | --- | --- | ---
- - | - | Part 1 \| Part 2 | Part 1 \| Part 2 | - | -
+ | - | Part 1 \| Part 2 | Part 1 \| Part 2 | - | -
 [1](/day_1) | Finished | O(n) \| O(n log n) | 3.129 \| 3.162 | 16 | -
 [2](/day_2) | Finished | O(n) \| O(n) | 3.639 \| 3.646 | 29 | -
 [3](/day_3) | Finished | O(n) \| O(n) | 2.051 \| 2.445 | 30 | -
