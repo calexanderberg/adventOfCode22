@@ -19,15 +19,11 @@ transferList [str1, str2] count [z, y] (h : t)
   where
     transferRest = transferList [str1, str2] (count + 1) [z, y] t
 
-build1 str = buildList str input 0
-
-build2 str = buildList str input 1
-
 part1 :: String -> String
-part1 file = build1 (lines file)
+part1 file = buildList (lines file) input 0
 
 part2 :: String -> String
-part2 file = build2 (lines file)
+part2 file = buildList (lines file) input 1
 
 test :: [[Char]]
 test = [['N', 'Z'], ['D', 'C', 'M'], ['P']]
