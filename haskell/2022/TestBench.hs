@@ -5,6 +5,7 @@ import Day_1.Day1 qualified as Day1
 import Day_2.Day2 qualified as Day2
 import Day_3.Day3 qualified as Day3
 import Day_4.Day4 qualified as Day4
+import Day_5.Day5 qualified as Day5
 import Test.Hspec
 
 readInputFile :: FilePath -> IO String
@@ -45,22 +46,38 @@ spec = do
       it "part 2 should return the expected value" $
         Day4.part2 input `shouldBe` 841
 
-benchmarkPart :: String -> (String -> Int) -> FilePath -> Benchmark
-benchmarkPart identifier partFn inputFile =
+    describe "Day 5" $ do
+      input <- runIO (readInputFile "day_5/input.txt")
+      it "part 1 should return the expected value" $
+        Day5.part1 input `shouldBe` "QGTHFZBHV"
+
+      it "part 2 should return the expected value" $
+        Day5.part2 input `shouldBe` "MGDMPSZTM"
+
+benchmarkPartInt :: String -> (String -> Int) -> FilePath -> Benchmark
+benchmarkPartInt identifier partFn inputFile =
+  bench (identifier ++ ": " ++ inputFile) $ nfIO $ do
+    content <- readInputFile inputFile
+    return (partFn content)
+
+benchmarkPartStr :: String -> (String -> String) -> FilePath -> Benchmark
+benchmarkPartStr identifier partFn inputFile =
   bench (identifier ++ ": " ++ inputFile) $ nfIO $ do
     content <- readInputFile inputFile
     return (partFn content)
 
 benchmarks :: [Benchmark]
 benchmarks =
-  [ benchmarkPart "Day 1, Part 1" Day1.part1 "day_1/input.txt",
-    benchmarkPart "Day 1, Part 2" Day1.part2 "day_1/input.txt",
-    benchmarkPart "Day 2, Part 1" Day2.part1 "day_2/input.txt",
-    benchmarkPart "Day 2, Part 2" Day2.part2 "day_2/input.txt",
-    benchmarkPart "Day 3, Part 1" Day3.part1 "day_3/input.txt",
-    benchmarkPart "Day 3, Part 2" Day3.part2 "day_3/input.txt",
-    benchmarkPart "Day 4, Part 1" Day4.part1 "day_4/input.txt",
-    benchmarkPart "Day 4, Part 2" Day4.part2 "day_4/input.txt"
+  [ benchmarkPartInt "Day 1, Part 1" Day1.part1 "day_1/input.txt",
+    benchmarkPartInt "Day 1, Part 2" Day1.part2 "day_1/input.txt",
+    benchmarkPartInt "Day 2, Part 1" Day2.part1 "day_2/input.txt",
+    benchmarkPartInt "Day 2, Part 2" Day2.part2 "day_2/input.txt",
+    benchmarkPartInt "Day 3, Part 1" Day3.part1 "day_3/input.txt",
+    benchmarkPartInt "Day 3, Part 2" Day3.part2 "day_3/input.txt",
+    benchmarkPartInt "Day 4, Part 1" Day4.part1 "day_4/input.txt",
+    benchmarkPartInt "Day 4, Part 2" Day4.part2 "day_4/input.txt",
+    benchmarkPartStr "Day 5, Part 1" Day5.part1 "day_5/input.txt",
+    benchmarkPartStr "Day 5, Part 2" Day5.part2 "day_5/input.txt"
   ]
 
 main :: IO ()
