@@ -1,22 +1,20 @@
 def create_list(filename):
-    current_elf = 0
     elf_list = []
-    with open(filename, "r") as file:
+    current_elf = 0
+    with open(filename) as file:
         for line in file:
-            if not line.strip():
+            line = line.strip()
+            if line:
+                current_elf += int(line)
+            else:
                 elf_list.append(current_elf)
                 current_elf = 0
-            else:
-                current_elf += int(line)
     elf_list.sort()
     return elf_list
 
 
-def most_cal(list, number):
-    if number == 0:
-        return 0
-    else:
-        return list[len(list) - number] + most_cal(list, number - 1)
+def most_cal(lst, number):
+    return 0 if number == 0 else lst[-number] + most_cal(lst, number - 1)
 
 
 def part1(str): return most_cal(create_list(str), 1)
