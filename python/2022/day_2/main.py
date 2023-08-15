@@ -2,12 +2,8 @@ def game(filename, state):
     score = 0
     with open(filename, "r") as file:
         for line in file:
-            if not line.strip():
-                continue
-            if state == 1:
-                score += scoreCount(line.strip().split(" "), 1)
-            elif state == 2:
-                score += scoreCount(line.strip().split(" "), 2)
+            if line.strip():
+                score += scoreCount(line.strip().split(" "), state)
     return score
 
 
