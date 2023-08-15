@@ -7,7 +7,7 @@
 
 </div>
 
-Below is the list of years adn the current status of the projects. Click each respective year to go to that folder:
+Below is the list of years adn the current status of the projects.
 
 Year | Status 
 ---|---
