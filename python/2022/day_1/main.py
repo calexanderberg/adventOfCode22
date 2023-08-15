@@ -1,4 +1,3 @@
-
 def create_list(filename):
     current_elf = 0
     elf_list = []
@@ -20,6 +19,10 @@ def most_cal(list, number):
         return list[len(list) - number] + most_cal(list, number - 1)
 
 
-elf_list = create_list("input.txt")
-print("Most cal for 1 elf: ", most_cal(elf_list, 1))
-print("Most cal for 3 elves: ", most_cal(elf_list, 3))
+def part1(str): return most_cal(create_list(str), 1)
+def part2(str): return most_cal(create_list(str), 3)
+
+
+input = "input.txt"
+print("Most cal for 1 elf: ", part1(input))
+print("Most cal for 3 elves: ", part2(input))

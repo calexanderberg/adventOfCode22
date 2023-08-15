@@ -34,5 +34,5 @@ def part2(str): return game(str, 2)
 
 
 input = "input.txt"
-print("Total score part 1: " + str(part1(input)))
-print("Total score part 2: " + str(part2(input)))
+print("Total score part 1: ", part1(input))
+print("Total score part 2: ", part2(input))
