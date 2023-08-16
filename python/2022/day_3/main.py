@@ -20,10 +20,9 @@ def findChar(strings):
         return list(set(strings[0]) & set(strings[1]) & set(strings[2]))
 
 
-alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-
-def calcValue(chars): return sum(map(lambda c: alphabet.index(c) + 1, chars))
+def calcValue(chars): 
+    alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    return sum(map(lambda c: alphabet.index(c) + 1, chars))
 
 
 def part1(file): return checkRuck(read_lines(file))
