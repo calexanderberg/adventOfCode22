@@ -27,8 +27,6 @@ def calcValue(chars): return sum(map(lambda c: alphabet.index(c) + 1, chars))
 
 
 def part1(file): return checkRuck(read_lines(file))
-
-
 def part2(file): return checkRucks(read_lines(file))
 
 
