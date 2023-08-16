@@ -11,9 +11,8 @@ numContain (h : t) x = case x of
     nums = concatMap (map read . splitOn "-") (splitOn "," h)
 
 isFullyContained :: [Int] -> [Int] -> Bool
-isFullyContained xs ys =
-  (minimum xs >= minimum ys && maximum xs <= maximum ys)
-    || (minimum ys >= minimum xs && maximum ys <= maximum xs)
+isFullyContained [h1, t1] [h2, t2] =
+  (h1 >= h2 && t1 <= t2) || (h2 >= h1 && t2 <= t1)
 
 isPartContained :: [Int] -> [Int] -> Bool
 isPartContained [h1, t1] [h2, t2] = t1 >= h2 && t2 >= h1
