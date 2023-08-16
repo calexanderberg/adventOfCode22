@@ -1,13 +1,11 @@
-def game(filename, state):
+def game(str, state):
     score = 0
-    with open(filename, "r") as file:
-        for line in file:
-            if line.strip():
-                score += scoreCount(line.strip().split(" "), state)
+    for item in str:
+        score += score_count(item.strip().split(" "), state)
     return score
 
 
-def scoreCount(lst, state):
+def score_count(lst, state):
     scores = {
         1: {
             'X': {'A': 4, 'B': 1, 'C': 7},
@@ -23,12 +21,10 @@ def scoreCount(lst, state):
     return scores[state][lst[1]][lst[0]]
 
 
-def part1(str): return game(str, 1)
+def part1(file): return game(read_lines(file), 1)
+def part2(file): return game(read_lines(file), 2)
 
 
-def part2(str): return game(str, 2)
-
-
-input = "input.txt"
-print("Total score part 1: ", part1(input))
-print("Total score part 2: ", part2(input))
+def read_lines(filename):
+    with open(filename) as file:
+        return [line.strip() for line in file]
