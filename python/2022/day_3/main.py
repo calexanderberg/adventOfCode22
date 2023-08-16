@@ -1,5 +1,5 @@
-def checkRuck(str):
-    return sum(map(lambda c: calcValue(findChar(c)), map(splitHalf, str)))
+def checkRuck(strings):
+    return sum(calcValue(findChar(splitHalf(s))) for s in strings)
 
 
 def checkRucks(str):
