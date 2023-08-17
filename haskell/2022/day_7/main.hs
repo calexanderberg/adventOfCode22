@@ -1,5 +1,6 @@
 module Main where
 
+-- Edit the below funxtions to return a list of Int where each item is a directory
 findDir :: [String] -> String -> Int
 findDir (x : xs) str = 
   | x == str = calcDirValue xs 0
@@ -12,6 +13,8 @@ calcDirValue (x : xs) val =
   | x == "$ cd .." = val
   | otherwise = calcDirValue xs (val + read (command !! 0))
   where command = words x
+
+-- end of needed edit
 
 part1 :: [String] -> Int
 part1 = calcDirValue
