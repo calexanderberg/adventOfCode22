@@ -11,7 +11,7 @@ calcDirValue list (x : xs) val dir
   | otherwise = calcDirValue list xs val dir
   where
     command = words x
-    find = navTo list xs dir (dir ++ [command !! 1])
+    find = navTo list xs dir $ dir ++ [command !! 1]
 
 navTo :: [String] -> [String] -> [String] -> [String] -> [Int]
 navTo list [] current goal = navTo list list ["/"] goal
@@ -27,7 +27,7 @@ createList :: [String] -> [Int]
 createList (x : xs) = calcDirValue xs xs 0 ["/"]
 
 part1 :: String -> Int
-part1 file = sum $ filter (<= 100000) $ createList (lines file)
+part1 file = sum $ filter (<= 100000) $ createList $ lines file
 
 part2 :: String -> Int
 part2 file = minimum $ filter (>= sizeToDel) list

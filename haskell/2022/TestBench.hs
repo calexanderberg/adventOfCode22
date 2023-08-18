@@ -17,7 +17,7 @@ spec :: Spec
 spec = do
   describe "2022 solutions" $ do
     describe "Day 1" $ do
-      input <- runIO (readInputFile "day_1/input.txt")
+      input <- runIO $ readInputFile "day_1/input.txt"
       it "part 1 should return the expected value" $
         Day1.part1 input `shouldBe` 68802
 
@@ -25,7 +25,7 @@ spec = do
         Day1.part2 input `shouldBe` 205370
 
     describe "Day 2" $ do
-      input <- runIO (readInputFile "day_2/input.txt")
+      input <- runIO $ readInputFile "day_2/input.txt"
       it "part 1 should return the expected value" $
         Day2.part1 input `shouldBe` 14069
 
@@ -33,7 +33,7 @@ spec = do
         Day2.part2 input `shouldBe` 12411
 
     describe "Day 3" $ do
-      input <- runIO (readInputFile "day_3/input.txt")
+      input <- runIO $ readInputFile "day_3/input.txt"
       it "part 1 should return the expected value" $
         Day3.part1 input `shouldBe` 7553
 
@@ -41,7 +41,7 @@ spec = do
         Day3.part2 input `shouldBe` 2758
 
     describe "Day 4" $ do
-      input <- runIO (readInputFile "day_4/input.txt")
+      input <- runIO $ readInputFile "day_4/input.txt"
       it "part 1 should return the expected value" $
         Day4.part1 input `shouldBe` 534
 
@@ -49,7 +49,7 @@ spec = do
         Day4.part2 input `shouldBe` 841
 
     describe "Day 5" $ do
-      input <- runIO (readInputFile "day_5/input.txt")
+      input <- runIO $ readInputFile "day_5/input.txt"
       it "part 1 should return the expected value" $
         Day5.part1 input `shouldBe` "QGTHFZBHV"
 
@@ -57,7 +57,7 @@ spec = do
         Day5.part2 input `shouldBe` "MGDMPSZTM"
 
     describe "Day 6" $ do
-      input <- runIO (readInputFile "day_6/input.txt")
+      input <- runIO $ readInputFile "day_6/input.txt"
       it "part 1 should return the expected value" $
         Day6.part1 input `shouldBe` 1702
 
@@ -65,7 +65,7 @@ spec = do
         Day6.part2 input `shouldBe` 3559
 
     describe "Day 7" $ do
-      input <- runIO (readInputFile "day_7/input.txt")
+      input <- runIO $ readInputFile "day_7/input.txt"
       it "part 1 should return the expected value" $
         Day7.part1 input `shouldBe` 1543140
 
@@ -76,13 +76,13 @@ benchmarkPartInt :: String -> (String -> Int) -> FilePath -> Benchmark
 benchmarkPartInt identifier partFn inputFile =
   bench (identifier ++ ": " ++ inputFile) $ nfIO $ do
     content <- readInputFile inputFile
-    return (partFn content)
+    return $ partFn content
 
 benchmarkPartStr :: String -> (String -> String) -> FilePath -> Benchmark
 benchmarkPartStr identifier partFn inputFile =
   bench (identifier ++ ": " ++ inputFile) $ nfIO $ do
     content <- readInputFile inputFile
-    return (partFn content)
+    return $ partFn content
 
 benchmarks :: [Benchmark]
 benchmarks =
