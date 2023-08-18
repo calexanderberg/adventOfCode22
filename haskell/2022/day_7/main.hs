@@ -1,25 +1,27 @@
 module Main where
 
--- Edit the below funxtions to return a list of Int where each item is a directory
-findDir :: [String] -> String -> Int
-findDir (x : xs) str = 
+import Data.Char (isDigit)
+
+findDir :: [String] -> String -> [Int]
+findDir (x : xs) str
   | x == str = calcDirValue xs 0
   | otherwise = findDir xs str
 
-calcDirValue :: [String] -> Int -> Int
-calcDirValue (x : xs) val =
+calcDirValue :: [String] -> Int -> [Int]
+calcDirValue [] val = [val]
+calcDirValue (x : xs) val
   | command !! 1 == "ls" = calcDirValue xs val
-  | command !! 0 == "dir" = val + findDir xs ("$ dir " + (command !! 1))
-  | x == "$ cd .." = val
-  | otherwise = calcDirValue xs (val + read (command !! 0))
-  where command = words x
+  | head command == "dir" = (head finder + head (calcDirValue xs val)) : finder
+  | isDigit (head x) = calcDirValue xs (val + read (head command))
+  | otherwise = [val]
+  where
+    command = words x
+    finder = findDir xs ("$ cd " ++ (command !! 1))
 
--- end of needed edit
-
-part1 :: [String] -> Int
-part1 = calcDirValue
+part1 :: [String] -> [Int]
+part1 (x : xs) = calcDirValue xs 0
 
 main :: IO ()
-	file <- readFile "test.txt"
-	putStrLn $ "Part 1: " ++ show (part1(lines file))
-  
+main = do
+  file <- readFile "test.txt"
+  putStrLn $ "Part 1: " ++ show (part1 (lines file))
