@@ -25,3 +25,6 @@ main :: IO ()
 main = do
   file <- readFile "test.txt"
   putStrLn $ "Part 1: " ++ show (part1 (lines file))
+
+-- I expect part1 to return Part 1: [48381165,94853,584,24933642]
+-- Instead it returns Part 1: [48381165,94853,584]
