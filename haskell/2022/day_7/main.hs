@@ -11,7 +11,7 @@ calcDirValue :: [String] -> Int -> [Int]
 calcDirValue [] val = [val]
 calcDirValue (x : xs) val
   | command !! 1 == "ls" = calcDirValue xs val
-  | head command == "dir" = (head finder + head (calcDirValue xs val)) : finder
+  | head command == "dir" = finder ++ calcDirValue xs (val + head finder)
   | isDigit (head x) = calcDirValue xs (val + read (head command))
   | otherwise = [val]
   where
