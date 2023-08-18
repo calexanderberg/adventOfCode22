@@ -2,29 +2,39 @@ module Main where
 
 import Data.Char (isDigit)
 
-findDir :: [String] -> String -> [Int]
-findDir (x : xs) str
-  | x == str = calcDirValue xs 0
-  | otherwise = findDir xs str
-
-calcDirValue :: [String] -> Int -> [Int]
-calcDirValue [] val = [val]
-calcDirValue (x : xs) val
-  | command !! 1 == "ls" = calcDirValue xs val
-  | head command == "dir" = finder ++ calcDirValue xs (val + head finder)
-  | isDigit (head x) = calcDirValue xs (val + read (head command))
+calcDirValue :: [String] -> [String] -> Int -> String -> [Int]
+calcDirValue list [] val _
+  | val >= 100000 = []
+  | otherwise = [val]
+calcDirValue list (x : xs) val dir
+  | command !! 1 == "ls" = calcDirValue list xs val dir
+  | head command == "dir" = case find of
+      [] -> find
+      _ -> find ++ calcDirValue list xs (val + head find) dir
+  | isDigit (head x) = calcDirValue list xs (val + read (head command)) dir
   | otherwise = [val]
   where
     command = words x
-    finder = findDir xs ("$ cd " ++ (command !! 1))
+    find = navTo list xs dir (dir ++ (command !! 1))
+
+navTo :: [String] -> [String] -> String -> String -> [Int]
+navTo list [] current goal = navTo list list "/" goal
+navTo list (x : xs) current goal
+  | command !! 1 == "cd" = case command !! 2 of
+      ".." -> navTo list xs (init current) goal
+      lastSegment -> navTo list xs (current ++ (command !! 2)) goal
+  | current == goal && x == "$ ls" = calcDirValue list xs 0 current
+  | otherwise = navTo list xs current goal
+  where
+    command = words x
+    lastSegment = last current
 
 part1 :: [String] -> [Int]
-part1 (x : xs) = calcDirValue xs 0
+part1 (x : xs) = calcDirValue xs xs 0 "/"
 
 main :: IO ()
 main = do
   file <- readFile "test.txt"
-  putStrLn $ "Part 1: " ++ show (part1 (lines file))
-
--- I expect part1 to return Part 1: [48381165,94853,584,24933642]
--- Instead it returns Part 1: [48381165,94853,584]
+  file2 <- readFile "input.txt"
+  putStrLn $ "Test: " ++ show (part1 (lines file))
+  putStrLn $ "Input: " ++ show (part1 (lines file2))
