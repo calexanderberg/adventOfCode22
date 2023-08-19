@@ -9,6 +9,8 @@ Below is a list of days, their status, time complexity, average execution time, 
 
 Note that a seperation of '|' is to seperate part 1 from part 2.
 
+I probably should compile these differently. An update on this will be posted
+
 
 <div align="center">
 <br />
@@ -22,7 +24,7 @@ Day | Status | Time complexity | Mean execution time (ms) |  line count | notes
 5 | ✅ | O(n^2) \| O(n) | 7.038 \| 6.921 | 36 | - 
 6| ✅ | O(n) \| O(n) | 1.219 \| 4.666 | 16 | - 
 7 | ✅ | O(n^2) \| O(n^2) | 13.37 \| 13.36 | 36 | Not really proud of this solution
-8 | ❌ | - | - | - 
+8 | ✅ | O(n) \| O(n) | 30.86 \| 62.83 | 36 | Very slow, will need to revisit the logic here
 9| ❌ | - | - | - 
 10 | ❌| - | - | - 
 11 | ❌ | - | - | - 

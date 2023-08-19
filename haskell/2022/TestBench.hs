@@ -8,6 +8,7 @@ import Day_4.Day4 qualified as Day4
 import Day_5.Day5 qualified as Day5
 import Day_6.Day6 qualified as Day6
 import Day_7.Day7 qualified as Day7
+import Day_8.Day8 qualified as Day8
 import Test.Hspec
 
 readInputFile :: FilePath -> IO String
@@ -72,6 +73,14 @@ spec = do
       it "part 2 should return the expected value" $
         Day7.part2 input `shouldBe` 1117448
 
+    describe "Day 8" $ do
+      input <- runIO $ readInputFile "day_8/input.txt"
+      it "part 1 should return the expected value" $
+        Day8.part1 input `shouldBe` 1840
+
+      it "part 2 should return the expected value" $
+        Day8.part2 input `shouldBe` 405769
+
 benchmarkPartInt :: String -> (String -> Int) -> FilePath -> Benchmark
 benchmarkPartInt identifier partFn inputFile =
   bench (identifier ++ ": " ++ inputFile) $ nfIO $ do
@@ -99,7 +108,9 @@ benchmarks =
     benchmarkPartInt "Day 6, Part 1" Day6.part1 "day_6/input.txt",
     benchmarkPartInt "Day 6, Part 2" Day6.part2 "day_6/input.txt",
     benchmarkPartInt "Day 7, Part 1" Day7.part1 "day_7/input.txt",
-    benchmarkPartInt "Day 7, Part 2" Day7.part2 "day_7/input.txt"
+    benchmarkPartInt "Day 7, Part 2" Day7.part2 "day_7/input.txt",
+    benchmarkPartInt "Day 8, Part 1" Day8.part1 "day_8/input.txt",
+    benchmarkPartInt "Day 8, Part 2" Day8.part2 "day_8/input.txt"
   ]
 
 main :: IO ()
