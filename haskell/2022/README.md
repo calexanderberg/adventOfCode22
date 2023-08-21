@@ -25,7 +25,7 @@ Day | Status | Time complexity | Mean execution time (ms) |  line count | notes
 6| ✅ | O(n) \| O(n) | 1.219 \| 4.666 | 16 | - 
 7 | ✅ | O(n^2) \| O(n^2) | 13.37 \| 13.36 | 36 | Not really proud of this solution
 8 | ✅ | O(n) \| O(n) | 30.86 \| 62.83 | 36 | Very slow, will need to revisit the logic here
-9| ❌ | - | - | - 
+9| ❌ | O(n) \| - |  30.44 \| - | 35 | Did not understand part 2
 10 | ❌| - | - | - 
 11 | ❌ | - | - | - 
 12 | ❌ | - | - | - 

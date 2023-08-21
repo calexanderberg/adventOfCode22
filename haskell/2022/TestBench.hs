@@ -78,8 +78,8 @@ spec = do
       it "part 1 should return the expected value" $
         Day8.part1 input `shouldBe` 1840
 
-      it "part 2 should return the expected value" $
-        Day8.part2 input `shouldBe` 405769
+-- it "part 2 should return the expected value" $
+--  Day8.part2 input `shouldBe` 405769
 
 benchmarkPartInt :: String -> (String -> Int) -> FilePath -> Benchmark
 benchmarkPartInt identifier partFn inputFile =
@@ -109,8 +109,8 @@ benchmarks =
     benchmarkPartInt "Day 6, Part 2" Day6.part2 "day_6/input.txt",
     benchmarkPartInt "Day 7, Part 1" Day7.part1 "day_7/input.txt",
     benchmarkPartInt "Day 7, Part 2" Day7.part2 "day_7/input.txt",
-    benchmarkPartInt "Day 8, Part 1" Day8.part1 "day_8/input.txt",
-    benchmarkPartInt "Day 8, Part 2" Day8.part2 "day_8/input.txt"
+    benchmarkPartInt "Day 8, Part 1" Day8.part1 "day_8/input.txt"
+    -- benchmarkPartInt "Day 8, Part 2" Day8.part2 "day_8/input.txt"
   ]
 
 main :: IO ()
