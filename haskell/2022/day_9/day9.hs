@@ -1,7 +1,8 @@
-module Day_8.Day8 where
+module Day_9.Day9 where
 
 import Data.List (nub)
 
+part1 :: String -> Int
 part1 = length . nub . ropeLength 1 . headPath [[0, 0]] . lines
 
 -- part2 = length . nub . ropeLength 10 . headPath [[0, 0]] . lines
@@ -32,4 +33,5 @@ tailPath (t : h : xs)
   where
     isNext = isNeightbor t $ head xs
 
+isNeightbor :: [Int] -> [Int] -> Bool
 isNeightbor [t0, t1] [h0, h1] = (h0 - t0) ^ 2 + (h1 - t1) ^ 2 < 4
