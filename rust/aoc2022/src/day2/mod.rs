@@ -2,46 +2,42 @@ pub fn game(input: &[String], status: i32) -> i32 {
     if input.is_empty() {
         return 0;
     }
-    let h: [&str; 2] = [
-        input[0].split_whitespace().next().unwrap_or(""),
-        input[0].split_whitespace().nth(1).unwrap_or(""),
-    ];
-    let t = &input[1..];
+    let h: Vec<&str> = input[0].split_whitespace().collect();
 
     match status {
-        1 => return game_round1(h) + game(t, 1),
-        2 => return game_round2(h) + game(t, 2),
+        1 => game_round(h[0], h[1]) + game(&input[1..], 1),
+        2 => game_round2(h[0], h[1]) + game(&input[1..], 2),
         _ => return 0,
     }
 }
 
-pub fn game_round1(input: [&str; 2]) -> i32 {
-    match (input[0], input[1]) {
-        ("X", "A") => return 4,
-        ("X", "B") => return 1,
-        ("X", "C") => return 7,
-        ("Y", "A") => return 8,
-        ("Y", "B") => return 5,
-        ("Y", "C") => return 2,
-        ("Z", "A") => return 3,
-        ("Z", "B") => return 9,
-        ("Z", "C") => return 6,
-        _ => return 0,
+pub fn game_round(x: &str, y: &str) -> i32 {
+    match (y, x) {
+        ("X", "A") => 4,
+        ("X", "B") => 1,
+        ("X", "C") => 7,
+        ("Y", "A") => 8,
+        ("Y", "B") => 5,
+        ("Y", "C") => 2,
+        ("Z", "A") => 3,
+        ("Z", "B") => 9,
+        ("Z", "C") => 6,
+        (&_, _) => 0,
     }
 }
 
-pub fn game_round2(input: [&str; 2]) -> i32 {
-    match (input[0], input[1]) {
-        ("X", "A") => return 3,
-        ("X", "B") => return 1,
-        ("X", "C") => return 2,
-        ("Y", "A") => return 4,
-        ("Y", "B") => return 5,
-        ("Y", "C") => return 5,
-        ("Z", "A") => return 8,
-        ("Z", "B") => return 9,
-        ("Z", "C") => return 7,
-        _ => return 0,
+pub fn game_round2(x: &str, y: &str) -> i32 {
+    match (y, x) {
+        ("X", "A") => 3,
+        ("X", "B") => 1,
+        ("X", "C") => 2,
+        ("Y", "A") => 4,
+        ("Y", "B") => 5,
+        ("Y", "C") => 6,
+        ("Z", "A") => 8,
+        ("Z", "B") => 9,
+        ("Z", "C") => 7,
+        (&_, _) => 0,
     }
 }
 
@@ -52,8 +48,5 @@ pub fn part1(file: &str) -> i32 {
 
 pub fn part2(file: &str) -> i32 {
     let input: Vec<String> = file.lines().map(|s| s.to_string()).collect();
-    return game(&input, 1);
+    return game(&input, 2);
 }
-
-
-
