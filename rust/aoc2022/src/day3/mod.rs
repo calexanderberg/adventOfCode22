@@ -1,67 +1,51 @@
-use std::io::BufRead;
+pub fn check_ruck(input: &[String]) -> i32 {
+    return input
+        .iter()
+        .map(|s| calc_val(find_char(split_str(s))))
+        .sum();
+}
 
-fn main() {
-    let file = std::fs::File::open("input.txt").unwrap();
-    let reader = std::io::BufReader::new(file);
-    let mut sum1: i32 = 0;
-    let mut sum2: i32 = 0;
-
-    let mut length: usize = 0;
-    let mut p2: [String; 3] = Default::default();
-
-    for (_index, line) in reader.lines().enumerate() {
-        let line = line.unwrap();
-        sum1 = sum1 + part_one(&line);
-        p2[length] = line.to_owned();
-
-        length = length + 1;
-
-        if length == 3 {
-            sum2 = sum2 + part_two(&p2);
-            length = 0;
-        }
+pub fn check_rucks(input: &[String]) -> i32 {
+    if input.is_empty() {
+        return 0;
+    } else {
+        let (x, xs) = (
+            input
+                .iter()
+                .take(3)
+                .map(|s| s.as_str())
+                .collect::<Vec<&str>>(),
+            &input[3..],
+        );
+        return calc_val(find_char(x)) + check_rucks(xs);
     }
-
-    println!("part one: {}", sum1);
-    println!("part two: {}", sum2);
 }
 
-pub fn findChar() -> Vec<char> {}
-
-pub fn calcVal(c: Vec<char>) -> i32 {
-    c.iter().map(|&c| alphabet().find(c)).sum()
+pub fn split_str(s: &String) -> Vec<&str> {
+    return vec![&s[..s.len() / 2], &s[s.len() / 2..]];
 }
 
-pub fn alphabet() -> &str {
-    return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+pub fn find_char(strings: Vec<&str>) -> char {
+    return strings[0]
+        .chars()
+        .filter(|c| strings[1..].iter().all(|s| s.contains(*c)))
+        .collect::<Vec<char>>()[0];
 }
 
-fn part_one(s: &str) -> i32 {
-    let alphabet: &str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let mut priority: i32 = 1;
-
-    let vec: Vec<&str> = vec![&s[..s.len() / 2], &s[s.len() / 2..]];
-    let second: Vec<char> = vec[1].chars().collect();
-    let common_char: char = vec[0].chars().find(|c| second.contains(&c)).unwrap();
-
-    priority = priority + alphabet.chars().position(|c| c == common_char).unwrap() as i32;
-    return priority;
+pub fn calc_val(c: char) -> i32 {
+    return alphabet().find(c).map(|x| x as i32).unwrap() + 1;
 }
 
-fn part_two(s: &[String; 3]) -> i32 {
-    let alphabet: &str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let mut priority: i32 = 1;
+pub fn alphabet() -> String {
+    return String::from("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+}
 
-    let first: Vec<char> = s[0].chars().collect();
-    let mid: Vec<char> = s[1].chars().collect();
-    let last: Vec<char> = s[2].chars().collect();
+pub fn part1(file: &str) -> i32 {
+    let input: Vec<String> = file.lines().map(|s| s.to_string()).collect();
+    return check_ruck(&input);
+}
 
-    for char in s[0].chars() {
-        if first.contains(&char) && mid.contains(&char) && last.contains(&char) {
-            priority = priority + alphabet.chars().position(|c| c == char).unwrap() as i32;
-            break;
-        }
-    }
-
-    return priority;
+pub fn part2(file: &str) -> i32 {
+    let input: Vec<String> = file.lines().map(|s| s.to_string()).collect();
+    return check_rucks(&input);
 }
