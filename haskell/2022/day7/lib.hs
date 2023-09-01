@@ -1,4 +1,4 @@
-module Day_7.Day7 where
+module Day7.Lib where
 
 import Data.Char (isDigit)
 

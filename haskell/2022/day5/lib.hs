@@ -1,4 +1,4 @@
-module Day_5.Day5 where
+module Day5.Lib where
 
 buildList :: [String] -> [String] -> Int -> String
 buildList [] list _ = map head list

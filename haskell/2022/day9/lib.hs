@@ -1,4 +1,4 @@
-module Day_9.Day9 where
+module Day9.Lib where
 
 import Data.List (nub)
 

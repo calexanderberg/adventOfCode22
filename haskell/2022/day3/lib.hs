@@ -1,4 +1,4 @@
-module Day_3.Day3 where
+module Day3.Lib where
 
 import Data.List
 

@@ -1,4 +1,4 @@
-module Day_8.Day8 where
+module Day8.Lib where
 
 import Data.Bits ((.|.))
 import Data.List (transpose)
@@ -20,7 +20,7 @@ matrixLines n
 
 seenItem :: Int -> [Int] -> [Int]
 seenItem _ [] = []
-seenItem a (x : xs) = (if a < x then 1 else 0) : seenItem (max a x) xs
+seenItem a (x : xs) = fromEnum (a < x) : seenItem (max a x) xs
 
 scenicItem :: [Int] -> [Int]
 scenicItem [] = []

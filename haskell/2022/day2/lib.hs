@@ -1,4 +1,4 @@
-module Day_2.Day2 where
+module Day2.Lib where
 
 game :: [String] -> Int -> Int
 game [] status = 0

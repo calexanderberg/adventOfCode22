@@ -1,6 +1,6 @@
-module Day_1.Day1 where
+module Day1.Lib where
 
-import Data.List (reverse, sort)
+import Data.List (sort)
 import Data.List.Split (splitOn)
 
 part1 :: String -> Int
