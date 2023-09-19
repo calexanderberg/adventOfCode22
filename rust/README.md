@@ -3,7 +3,7 @@
 ## Rust
 #### Borrow checkin boi
 
-[![Rust](https://img.shields.io/badge/rust-orange.svg?style=for-the-badge&logoColor=white&logo=rust)]()
+[![Rust](https://img.shields.io/badge/rust-f74c00.svg?style=for-the-badge&logoColor=white&logo=rust)]()
 
 </div>
 
