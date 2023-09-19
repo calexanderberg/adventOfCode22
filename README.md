@@ -5,8 +5,8 @@
 
 [![C](https://img.shields.io/badge/c-00599C.svg?style=for-the-badge&logoColor=white&logo=c)](/c)
 [![Go](https://img.shields.io/badge/Go-00ADD8.svg?style=for-the-badge&logoColor=white&logo=go)](/go)
-[![Haskell](https://img.shields.io/badge/Haskell-5D4F85.svg?style=for-the-badge&logoColor=white&logo=haskell)](/haskell)
 [![Python](https://img.shields.io/badge/Python-3776AB.svg?style=for-the-badge&logoColor=white&logo=python)](/python)
+[![Haskell](https://img.shields.io/badge/Haskell-5D4F85.svg?style=for-the-badge&logoColor=white&logo=haskell)](/haskell)
 [![Rust](https://img.shields.io/badge/Rust-f74c00.svg?style=for-the-badge&logoColor=white&logo=rust)](/rust)
 
 </div>
