@@ -6,6 +6,7 @@ mod day3;
 mod day4;
 //mod day5;
 mod day6;
+mod day7;
 
 fn main() {
     let test = fs::read_to_string("./tests/day6.txt").unwrap();
