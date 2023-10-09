@@ -27,6 +27,6 @@ def read_lines(filename):
         return [[int(cal) for cal in line.split()] for line in file.read().split("\n\n")]
 
 
-file = "../../inputs/day1.txt"
+file = "../inputs/day1.txt"
 print(part1(file))
 print(part2(file))
