@@ -1,3 +1,7 @@
+# Personal
+.DS_Store
+.nvim
+
 # RUST
 debug/
 target/
