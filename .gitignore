@@ -34,17 +34,6 @@ cabal.project.local~
 .HTF/
 .ghc.environment.*
 
-# GO
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
-*.test
-*.out
-vendor/
-go.work
-
 # PYTHON
 __pycache__/
 *.py[cod]
