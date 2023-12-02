@@ -28,7 +28,6 @@ def part1(input):
 
     return int(torch.sum(torch.tensor([i + 1 for i, condition in enumerate(conditions) if condition])))
 
-
 def part2(input):
     tensor = create_tensor(input)
     
