@@ -58,7 +58,5 @@ def read_input(filename):
         return [line.strip().replace(" ", "") for line in file]
 
 file = "../inputs/day1.txt"
-#print(read_input(file))
-#print(prepare_array(read_input(file)))
-#print(part1(read_input(file)))
+print(part1(read_input(file)))
 print(part2(prepare_array(read_input(file))))
