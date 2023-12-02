@@ -50,7 +50,6 @@ def part1(input):
 
 def part2(input): 
     tensor = tensor_part2(input)
-    print(tensor)
     return int(torch.sum(tensor[:,0]) * 10 + torch.sum(tensor[:, 1]))
 
 def read_input(filename):
