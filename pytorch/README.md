@@ -3,7 +3,7 @@
 ## ML frameworks
 #### Both in tinygrad and pytorch
 
-[![Tinygrad](https://img.shields.io/badge/Tinygrad-white.svg?style=for-the-badge&logoColor=black&logo=)]()
+[![Tinygrad](https://img.shields.io/badge/Tinygrad-white.svg?style=for-the-badge&logoColor=black&logo=tinygrad)]()
 [![Pytorch](https://img.shields.io/badge/Pytorch-EE4C2C.svg?style=for-the-badge&logoColor=white&logo=pytorch)]()
 
 </div>
