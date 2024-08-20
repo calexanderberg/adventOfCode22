@@ -3,7 +3,7 @@
 ## Advent of Code
 #### My attempt to use languages to write blazingly fast algorithms
 
-[![verilog](https://img.shields.io/badge/systemverilog-283272.svg?style=for-the-badge&logoColor=white&logo=riscv)](/verilog)
+[![verilog](https://img.shields.io/badge/systemverilog-283272.svg?style=for-the-badge&logoColor=white&logo=ieee)](/verilog)
 [![C](https://img.shields.io/badge/c-00599C.svg?style=for-the-badge&logoColor=white&logo=c)](/c)
 [![Rust](https://img.shields.io/badge/Rust-f74c00.svg?style=for-the-badge&logoColor=white&logo=rust)](/rust)
 [![Python](https://img.shields.io/badge/Python-3776AB.svg?style=for-the-badge&logoColor=white&logo=python)](/python)
