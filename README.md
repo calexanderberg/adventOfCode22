@@ -8,7 +8,7 @@
 [![Rust](https://img.shields.io/badge/Rust-f74c00.svg?style=for-the-badge&logoColor=white&logo=rust)](/rust)
 [![Python](https://img.shields.io/badge/Python-3776AB.svg?style=for-the-badge&logoColor=white&logo=python)](/python)
 [![Haskell](https://img.shields.io/badge/Haskell-5D4F85.svg?style=for-the-badge&logoColor=white&logo=haskell)](/haskell)
-[![Pytorch](https://img.shields.io/badge/Pytorch-EE4C2C.svg?style=for-the-badge&logoColor=white&logo=pytorch)](/pytorch)
+[![Tinygrad](https://img.shields.io/badge/Tinygrad-FFFFFF.svg?style=for-the-badge&logoColor=black&logo=tinygrad)](/tinygrad)
 
 </div>
 

@@ -1,10 +1,9 @@
 <div align="center">
 
-## ML frameworks
-#### Both in tinygrad and pytorch
+## Programming 2.0
+#### In tinygrad
 
 [![Tinygrad](https://img.shields.io/badge/Tinygrad-white.svg?style=for-the-badge&logoColor=black&logo=tinygrad)]()
-[![Pytorch](https://img.shields.io/badge/Pytorch-EE4C2C.svg?style=for-the-badge&logoColor=white&logo=pytorch)]()
 
 </div>
 
