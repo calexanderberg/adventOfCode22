@@ -1,7 +1,7 @@
 <div align="center">
 
-## Programming 2.0
-#### In tinygrad
+## Tinygrad
+#### Programming 2.0 af boi
 
 [![Tinygrad](https://img.shields.io/badge/Tinygrad-white.svg?style=for-the-badge&logoColor=black&logo=tinygrad)]()
 
