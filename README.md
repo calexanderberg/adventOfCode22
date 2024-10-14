@@ -5,6 +5,7 @@
 
 [![verilog](https://img.shields.io/badge/systemverilog-283272.svg?style=for-the-badge&logoColor=white&logo=ieee)](/verilog)
 [![C](https://img.shields.io/badge/c-00599C.svg?style=for-the-badge&logoColor=white&logo=c)](/c)
+[![Python](https://img.shields.io/badge/python-3776AB.svg?style=for-the-badge&logoColor=white&logo=python)](/python)
 [![Rust](https://img.shields.io/badge/Rust-f74c00.svg?style=for-the-badge&logoColor=white&logo=rust)](/rust)
 [![Haskell](https://img.shields.io/badge/Haskell-5D4F85.svg?style=for-the-badge&logoColor=white&logo=haskell)](/haskell)
 [![Tinygrad](https://img.shields.io/badge/Tinygrad-FFFFFF.svg?style=for-the-badge&logoColor=black&logo=tinygrad)](/tinygrad)
@@ -18,12 +19,14 @@ I can go over the idea behind each:
 
 * SystemVerilog: Learning how a chip executes a program, and ASIC design
 * C: Low level.
+* Python: General.
 * Haskell: Functional.
 * Rust: Ownership based.
 * Tinygrad: Programming 2.0. Look at data in terms of tensors.
 
 Future languages:
 * Agda: Dependent Types
+* ? Ruby: Object Oriented ? (Just not sure if its worth it)
 
 This is my fun folder where I try to achieve both those goals.
 
