@@ -36,7 +36,7 @@ jobs:
           days=("day1" "day2")
           cd tinygrad/2022
           for day in ${days[@]}; do
-            python tiny.pu $day
+            python tiny.py $day
             printf "\n $day:"
             time python tiny.py $day
           done
