@@ -37,6 +37,7 @@ jobs:
           cd tinygrad/2022
           for day in ${days[@]}; do
             echo $day
+            sleep .1  # sleep so echo works properly
             python tiny.py $day
             time python tiny.py $day
           done
