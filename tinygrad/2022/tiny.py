@@ -1,4 +1,5 @@
-
+import subprocess
+import sys
 
 def tiny_days():
     subprocess.run(["python3", f"./{sys.argv[1]}/tiny.py"])
