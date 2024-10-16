@@ -30,3 +30,11 @@ jobs:
 
     - name: test rust (not sure if rustc is installed by default)
       run: rustc ./rust/2022/day_1/src/main.rs
+
+    - name: Testbench Tinygrad
+      run: |
+          days=("day1" "day2")
+          cd tinygrad/2022
+          for day in ${days[@]}; do
+            time python tiny.py $day
+          end
