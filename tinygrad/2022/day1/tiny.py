@@ -16,6 +16,6 @@ def read_lines(filename):
         return [[int(cal) for cal in line.split()] for line in file.read().split("\n\n")]
 
 
-file = "./inputs/day1.txt"
+file = "./2022/inputs/day1.txt"
 assert part1(file) == 68802
 assert part2(file) == 205370

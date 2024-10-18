@@ -40,7 +40,7 @@ jobs:
           cd haskell
           ghc haskell.hs
           for day in ${days[@]}; do
-            haskell 2022 $day
+            ./haskell 2022 $day
             time ./$day/lib
           done
 

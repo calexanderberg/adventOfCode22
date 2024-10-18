@@ -41,6 +41,6 @@ def read_lines(filename):
         return [line.strip().replace(" ", "") for line in file]
 
 
-file = "./inputs/day2.txt"
+file = "./2022/inputs/day2.txt"
 assert part1(file) == 14069
 assert part2(file) == 12411
