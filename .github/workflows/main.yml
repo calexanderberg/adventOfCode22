@@ -27,7 +27,7 @@ jobs:
 
     # set up haskell
     - name: install haskell
-      run: sudo apt install haskell-platform cabal
+      run: sudo apt install haskell-platform cabal-install
 
     - name: install deps
       run: cabal install --lib process hspec split
