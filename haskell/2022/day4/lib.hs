@@ -24,6 +24,6 @@ part2 :: String -> Int
 part2 file = numContain (lines file) 1
 
 main = do
-    input <- readFile "./inputs/day4.txt"
+    input <- readFile "./2022/inputs/day4.txt"
     part1 input `shouldBe` 534
     part2 input `shouldBe` 841

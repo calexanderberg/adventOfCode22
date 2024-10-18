@@ -36,6 +36,6 @@ part2 :: String -> Int
 part2 str = maximum . map maximum $ createMatrix (lines str) 1
 
 main = do
-    input <- readFile "./inputs/day8.txt"
+    input <- readFile "./2022/inputs/day8.txt"
     part1 input `shouldBe` 1840
     part2 input `shouldBe` 405769

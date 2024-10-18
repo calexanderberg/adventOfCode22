@@ -30,6 +30,6 @@ part2 :: String -> Int
 part2 file = checkRucks $ lines file
 
 main = do
-    input <- readFile "./inputs/day3.txt"
+    input <- readFile "./2022/inputs/day3.txt"
     part1 input `shouldBe` 7553
     part2 input `shouldBe` 2758
