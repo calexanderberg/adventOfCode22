@@ -30,7 +30,9 @@ jobs:
       run: sudo apt install haskell-platform cabal-install
 
     - name: install deps
-      run: cabal install --lib process hspec split
+      run: |
+          cabal update
+          cabal install --lib process hspec split
 
     - name: Testbench haskell 2022
       run: |
