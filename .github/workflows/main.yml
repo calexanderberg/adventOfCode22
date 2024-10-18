@@ -38,7 +38,8 @@ jobs:
           cd haskell/2022
           ghc haskell.hs
           for day in ${days[@]}; do
-            time haskell $day;
+            haskell $day
+            time ./$day/lib
           done
 
   tinygrad:

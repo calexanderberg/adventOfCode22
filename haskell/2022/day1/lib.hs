@@ -9,6 +9,6 @@ part2 :: String -> Int
 part2 = sum . take 3 . reverse . sort . map (sum . map read . lines) . splitOn "\n\n"
 
 main = do
-    input <- readFile "../inputs/day1.txt"
+    input <- readFile "./inputs/day1.txt"
     part1 input `shouldBe` 68802
     part2 input `shouldBe` 205370
