@@ -1,5 +1,4 @@
-module Day7.Lib where
-
+import Test.Hspec
 import Data.Char (isDigit)
 
 calcDirValue :: [String] -> [String] -> Int -> [String] -> [Int]

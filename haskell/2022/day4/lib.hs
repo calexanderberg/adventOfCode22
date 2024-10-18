@@ -1,5 +1,4 @@
-module Day4.Lib where
-
+import Test.Hspec
 import Data.List.Split
 
 numContain :: [String] -> Int -> Int

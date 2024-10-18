@@ -1,5 +1,4 @@
-module Day3.Lib where
-
+import Test.Hspec
 import Data.List
 
 checkRuck :: [String] -> Int

@@ -1,5 +1,4 @@
-module Day8.Lib where
-
+import Test.Hspec
 import Data.Bits ((.|.))
 import Data.List (transpose)
 

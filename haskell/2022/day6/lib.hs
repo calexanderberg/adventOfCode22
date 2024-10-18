@@ -1,5 +1,4 @@
-module Day6.Lib where
-
+import Test.Hspec
 import Data.List (nub)
 
 checkString :: String -> Int -> Int

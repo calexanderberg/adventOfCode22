@@ -1,4 +1,4 @@
-module Day2.Lib where
+import Test.Hspec
 
 game :: [String] -> Int -> Int
 game [] status = 0

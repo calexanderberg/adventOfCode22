@@ -44,6 +44,19 @@ jobs:
             time ./2022/$day/lib
           done
 
+  rust:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 30
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: update packages
+      run: sudo apt update
+
+    - name: Check rust version
+      run: rustc --version
+
   tinygrad:
     runs-on: ubuntu-20.04
     timeout-minutes: 30

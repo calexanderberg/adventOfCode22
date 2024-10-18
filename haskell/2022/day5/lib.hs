@@ -1,4 +1,4 @@
-module Day5.Lib where
+import Test.Hspec
 
 buildList :: [String] -> [String] -> Int -> String
 buildList [] list _ = map head list

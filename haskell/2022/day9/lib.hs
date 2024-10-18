@@ -1,5 +1,4 @@
-module Day9.Lib where
-
+import Test.Hspec
 import Data.List (nub)
 
 part1 :: String -> Int
