@@ -61,7 +61,7 @@ jobs:
     - name: Testbench Tinygrad 2022
       run: |
           days=("day1" "day2")
-          cd tinygrad/2022
+          cd tinygrad
           for day in ${days[@]}; do
-            time python tiny.py $day;
+            time python tiny.py 2020 $day;
           done
