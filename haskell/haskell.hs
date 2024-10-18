@@ -4,4 +4,5 @@ import System.Environment (getArgs)
 main :: IO ()
 main = do
     args <- getArgs
-    callProcess "ghc" ("./" ++ head args ++ "/lib.hs")
+    case args of
+        [year, day] -> callProcess "ghc" ["./" ++ year ++ "/" ++ dir2 ++ "/lib.hs"]
