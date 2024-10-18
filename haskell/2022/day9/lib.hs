@@ -35,3 +35,7 @@ tailPath (t : h : xs)
 
 isNeightbor :: [Int] -> [Int] -> Bool
 isNeightbor [t0, t1] [h0, h1] = (h0 - t0) ^ 2 + (h1 - t1) ^ 2 < 4
+
+main = do
+    input <- readFile "./inputs/day9.txt"
+    part1 input `shouldBe` 5878

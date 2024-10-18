@@ -14,3 +14,8 @@ part1 str = checkString str 4
 
 part2 :: String -> Int
 part2 str = checkString str 14
+
+main = do
+    input <- readFile "./inputs/day6.txt"
+    part1 input `shouldBe` 1702
+    part2 input `shouldBe` 3559

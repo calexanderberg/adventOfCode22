@@ -27,3 +27,8 @@ part1 file = game (lines file) 1
 
 part2 :: String -> Int
 part2 file = game (lines file) 2
+
+main = do
+    input <- readFile "./inputs/day2.txt"
+    part1 input `shouldBe` 14069
+    part2 input `shouldBe` 12411

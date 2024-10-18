@@ -30,3 +30,8 @@ test = [['N', 'Z'], ['D', 'C', 'M'], ['P']]
 
 input :: [[Char]]
 input = [['Z', 'P', 'B', 'Q', 'M', 'D', 'N'], ['V', 'H', 'D', 'M', 'Q', 'Z', 'L', 'C'], ['G', 'Z', 'F', 'V', 'D', 'R', 'H', 'Q'], ['N', 'F', 'D', 'G', 'H'], ['Q', 'F', 'N'], ['T', 'B', 'F', 'Z', 'V', 'Q', 'D'], ['H', 'S', 'V', 'D', 'Z', 'T', 'M', 'Q'], ['Q', 'N', 'P', 'F', 'G', 'M'], ['M', 'R', 'W', 'B']]
+
+main = do
+    input <- readFile "./inputs/day5.txt"
+    part1 input `shouldBe` "QGTHFZBHV"
+    part2 input `shouldBe` "MGDMPSZTM"

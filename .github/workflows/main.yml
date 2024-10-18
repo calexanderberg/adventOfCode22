@@ -6,32 +6,56 @@ on:
   pull_request:
     branches: [ main ]
 
+
+
+
+# ADD JOBS, VERILATOR, C
+    # set up verilog & verilator
+    #    - name  install haskell 
+    #      uses: V0XNIHILI/install-verilator-action@main
+
 jobs:
-  build:
+  haskell:
     runs-on: ubuntu-20.04
     timeout-minutes: 30
+
     steps:
     - uses: actions/checkout@v4
 
     - name: update packages
       run: sudo apt update
 
-    # set up verilog & verilator
-    #    - name  install haskell 
-    #      uses: V0XNIHILI/install-verilator-action@main
-
     # set up haskell
-    - name: install haskell 
-      run: sudo apt install haskell-platform
+    - name: install haskell
+      run: sudo apt install haskell-platform cabal
+
+    - name: install deps
+      run: cabal install --lib process hspec split
+
+    - name: Testbench haskell 2022
+      run: |
+          days=("day1" "day2" "day3" "day4" "day5" "day6" "day7" "day8" "day9")
+          cd haskell/2022
+          ghc haskell.hs
+          for day in ${days[@]}; do
+            time haskell $day;
+          done
+
+  tinygrad:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 30
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: update packages
+      run: sudo apt update
 
     # set up tinygrad
     - name: install tinygrad
       run: pip install tinygrad
 
-    - name: test rust (not sure if rustc is installed by default)
-      run: rustc ./rust/2022/day_1/src/main.rs
-
-    - name: Testbench Tinygrad
+    - name: Testbench Tinygrad 2022
       run: |
           days=("day1" "day2")
           cd tinygrad/2022

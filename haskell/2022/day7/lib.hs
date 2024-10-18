@@ -34,3 +34,8 @@ part2 file = minimum $ filter (>= sizeToDel) list
   where
     sizeToDel = 30000000 - (70000000 - head list)
     list = createList (lines file)
+
+main = do
+    input <- readFile "./inputs/day7.txt"
+    part1 input `shouldBe` 1543140
+    part2 input `shouldBe` 1117448
