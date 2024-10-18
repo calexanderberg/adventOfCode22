@@ -5,4 +5,4 @@ main :: IO ()
 main = do
     args <- getArgs
     case args of
-        [year, day] -> callProcess "ghc" ["./" ++ year ++ "/" ++ dir2 ++ "/lib.hs"]
+        [year, day] -> callProcess "ghc" ["./" ++ year ++ "/" ++ day ++ "/lib.hs"]
