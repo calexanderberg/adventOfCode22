@@ -35,6 +35,6 @@ part2 file = minimum $ filter (>= sizeToDel) list
     list = createList (lines file)
 
 main = do
-    input <- readFile "./2022/2022/inputs/day7.txt"
+    input <- readFile "./2022/inputs/day7.txt"
     part1 input `shouldBe` 1543140
     part2 input `shouldBe` 1117448

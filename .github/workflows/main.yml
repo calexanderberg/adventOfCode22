@@ -9,7 +9,7 @@ on:
 
 
 
-# ADD JOBS, VERILATOR, C
+# ADD JOBS, VERILATOR, C and finish Rust
     # set up verilog & verilator
     #    - name  install haskell 
     #      uses: V0XNIHILI/install-verilator-action@main
