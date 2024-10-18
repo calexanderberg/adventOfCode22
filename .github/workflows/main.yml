@@ -63,5 +63,5 @@ jobs:
           days=("day1" "day2")
           cd tinygrad
           for day in ${days[@]}; do
-            time python tiny.py 2020 $day;
+            time python tiny.py 2022 $day;
           done
