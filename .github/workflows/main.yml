@@ -57,6 +57,16 @@ jobs:
     - name: Check rust version
       run: rustc --version
 
+    - name: Testbench haskell 2022
+      run: |
+          days=("day1" "day2" "day3" "day4" "day5" "day6" "day7" "day8" "day9")
+          cd rust
+          rustc rust.rs
+          for day in ${days[@]}; do
+            ./rust 2022 $day
+            time ./2022/$day/rust
+          done
+
   tinygrad:
     runs-on: ubuntu-20.04
     timeout-minutes: 30
