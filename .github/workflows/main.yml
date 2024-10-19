@@ -6,14 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-
-
-
-# ADD JOBS, VERILATOR, C and finish Rust
-    # set up verilog & verilator
-    #    - name  install haskell 
-    #      uses: V0XNIHILI/install-verilator-action@main
-
 jobs:
   haskell:
     runs-on: ubuntu-20.04
@@ -34,7 +26,7 @@ jobs:
           cabal update
           cabal install --lib process hspec split
 
-    - name: Testbench haskell 2022
+    - name: Testbench Haskell 2022
       run: |
           days=("day1" "day2" "day3" "day4" "day5" "day6" "day7" "day8" "day9")
           cd haskell
@@ -54,10 +46,7 @@ jobs:
     - name: update packages
       run: sudo apt update
 
-    - name: Check rust version
-      run: rustc --version
-
-    - name: Testbench haskell 2022
+    - name: Testbench Rust 2022
       run: |
           days=("day1" "day2" "day3" "day4" "day5" "day6" "day7" "day8" "day9")
           cd rust
@@ -88,3 +77,24 @@ jobs:
           for day in ${days[@]}; do
             time python tiny.py 2022 $day;
           done
+
+  #  verilog:
+  #    runs-on: ubuntu-20.04
+  #    timeout-minutes: 30
+  #
+  #    steps:
+  #    - uses: actions/checkout@v4
+  #
+  #    - name: update packages
+  #      run: sudo apt update
+  #
+  #    - name: Testbench verilog 2022
+  #      run: |
+  #          days=("day1" "day2" "day3" "day4" "day5" "day6" "day7" "day8" "day9")
+  #          cd rust
+  #          rustc rust.rs
+  #          for day in ${days[@]}; do
+  #            ./rust 2022 $day
+  #            time ./2022/$day/rust
+  #          done
+

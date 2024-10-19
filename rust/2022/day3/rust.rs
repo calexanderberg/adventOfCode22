@@ -49,3 +49,9 @@ pub fn part2(file: &str) -> i32 {
     let input: Vec<String> = file.lines().map(|s| s.to_string()).collect();
     return check_rucks(&input);
 }
+
+fn main() {
+    let input = fs::read_to_string("./tests/day3.txt").unwrap();
+    assert!(part1(input) == 7553,"Part1 is not working");
+    assert!(part2(input) == 2758,"Part2 is not working");
+}

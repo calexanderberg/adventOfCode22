@@ -19,3 +19,9 @@ pub fn part2(file: &str) -> i32 {
     let input: String = file.lines().map(str::to_string).collect();
     return check_string(&input, 14);
 }
+
+fn main() {
+    let input = fs::read_to_string("./tests/day6.txt").unwrap();
+    assert!(part1(input) == 1702,"Part1 is not working");
+    assert!(part2(input) == 3559,"Part2 is not working");
+}

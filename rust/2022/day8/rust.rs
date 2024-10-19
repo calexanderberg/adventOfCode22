@@ -34,3 +34,9 @@ pub fn part2(file: &str) -> i32 {
     let input: String = file.lines().map(str::to_string).collect();
     create_matrix(&input, 1)
 }
+
+fn main() {
+    let input = fs::read_to_string("./tests/day8.txt").unwrap();
+    assert!(part1(input) == 1840,"Part1 is not working");
+    assert!(part2(input) == 405769,"Part2 is not working");
+}

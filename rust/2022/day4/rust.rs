@@ -38,3 +38,9 @@ pub fn part2(file: &str) -> i32 {
     let input: Vec<String> = file.lines().map(|s| s.to_string()).collect();
     return num_contain(&input, 2);
 }
+
+fn main() {
+    let input = fs::read_to_string("./tests/day4.txt").unwrap();
+    assert!(part1(input) == 534,"Part1 is not working");
+    assert!(part2(input) == 841,"Part2 is not working");
+}

@@ -50,3 +50,9 @@ pub fn part2(file: &str) -> i32 {
     let input: Vec<String> = file.lines().map(|s| s.to_string()).collect();
     return game(&input, 2);
 }
+
+fn main() {
+    let input = fs::read_to_string("./tests/day2.txt").unwrap();
+    assert!(part1(input) == 14069,"Part1 is not working");
+    assert!(part2(input) == 12411,"Part2 is not working");
+}
