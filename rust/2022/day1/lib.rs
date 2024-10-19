@@ -17,7 +17,7 @@ pub fn part2(file: &str) -> i32 {
 }
 
 fn main() {
-    let input = std::fs::read_to_string("./inputs/day1.txt").unwrap();
+    let input = std::fs::read_to_string("./2022/inputs/day1.txt").expect("Failed to read input file");
     assert!(part1(&input) == 68802,"Part1 is not working");
     assert!(part2(&input) == 205370,"Part2 is not working");
 }

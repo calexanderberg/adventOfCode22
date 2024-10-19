@@ -75,7 +75,7 @@ pub fn input() -> Vec<Vec<char>> {
 }
 
 fn main() {
-    let input = std::fs::read_to_string("./inputs/day5.txt").unwrap();
+    let input = std::fs::read_to_string("./2022/inputs/day5.txt").expect("failed to read input file");
     assert!(part1(&input) == String::from("QGTHFZBHV"),"Part1 is not working");
     assert!(part2(&input) == String::from("MGDMPSZTM"),"Part2 is not working");
 }
