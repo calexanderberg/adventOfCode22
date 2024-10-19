@@ -1,18 +1,38 @@
+// BROKEN
+
 pub fn build_list(input: &[String], stacks: Vec<Vec<char>>, status: i32) -> String {
     if input.is_empty() {
         return stacks.iter().map(|s| s[0]).collect();
     }
     let (x, xs) = (&input[0], &input[1..]);
-    let nums =  input[0].split_whitespace().enumerate().filter_map(|(i, word)| {if [1, 3, 5].contains(&i) {word.parse::<i32>().ok()} else {None}})
-    .collect();
-    let (split1, split2) = ([list[nums[1] - 1][..nums[0]].chars().rev().collect(), list[nums[1] - 1][nums[0]..].to_string()], [list[nums[1] - 1][..nums[0]].to_string(), list[nums[1] - 1][nums[0]..].to_string()]);
+    let nums: Vec<usize> = input[0]
+        .split_whitespace()
+        .enumerate()
+        .filter_map(|(i, word)| {
+            if [1, 3, 5].contains(&i) {
+                word.parse::<usize>().ok()
+            } else {
+                None
+            }
+        })
+        .collect();
+    let (split1, split2) = (
+        [
+            stacks[nums[1] - 1][..nums[0]].chars().rev().collect(),
+            stacks[nums[1] - 1][nums[0]..].to_string(),
+        ],
+        [
+            stacks[nums[1] - 1][..nums[0]].to_string(),
+            stacks[nums[1] - 1][nums[0]..].to_string(),
+        ],
+    );
     match status {
         1 => {
-            return build_list(xs, stacks, 1):
-        },
+            return build_list(xs, stacks, 1);
+        }
         2 => {
-            return build_list(xs, (), 2):
-        },
+            return build_list(xs, stacks, 2);
+        }
         _ => panic!("Invalid status"),
     }
 }
@@ -75,7 +95,14 @@ pub fn input() -> Vec<Vec<char>> {
 }
 
 fn main() {
-    let input = std::fs::read_to_string("./2022/inputs/day5.txt").expect("failed to read input file");
-    assert!(part1(&input) == String::from("QGTHFZBHV"),"Part1 is not working");
-    assert!(part2(&input) == String::from("MGDMPSZTM"),"Part2 is not working");
+    let input =
+        std::fs::read_to_string("./2022/inputs/day5.txt").expect("failed to read input file");
+    assert!(
+        part1(&input) == String::from("QGTHFZBHV"),
+        "Part1 is not working"
+    );
+    assert!(
+        part2(&input) == String::from("MGDMPSZTM"),
+        "Part2 is not working"
+    );
 }
