@@ -36,7 +36,7 @@ pub fn part2(file: &str) -> i32 {
 }
 
 fn main() {
-    let input = std::fs::read_to_string("./tests/day8.txt").unwrap();
-    assert!(part1(input) == 1840,"Part1 is not working");
-    assert!(part2(input) == 405769,"Part2 is not working");
+    let input = std::fs::read_to_string("./inputs/day8.txt").unwrap();
+    assert!(part1(&input) == 1840,"Part1 is not working");
+    assert!(part2(&input) == 405769,"Part2 is not working");
 }
