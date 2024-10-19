@@ -32,7 +32,7 @@ jobs:
           cd haskell
           ghc haskell.hs
           for day in ${days[@]}; do
-            ./haskell 2022 $day
+            ghc ./2022/$day/lib.hs
             time ./2022/$day/lib
           done
 
@@ -50,9 +50,8 @@ jobs:
       run: |
           days=("day1" "day2" "day3" "day4" "day5" "day6" "day7" "day8")
           cd rust
-          rustc rust.rs
           for day in ${days[@]}; do
-            ./rust 2022 $day
+            rustc ./2022/$day/lib.rs
             time ./lib
           done
 
@@ -75,7 +74,7 @@ jobs:
           days=("day1" "day2")
           cd tinygrad
           for day in ${days[@]}; do
-            time python tiny.py 2022 $day;
+            time python3 ./2022/$day/tiny.py;
           done
 
   #  verilog:
