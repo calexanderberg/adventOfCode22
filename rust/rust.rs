@@ -5,6 +5,4 @@ fn main() {
         .arg(format!("./{}/{}/rust.rs", args[1], args[2]))
         .status()
         .expect("Failed to execute process");
-
-    }
 }
