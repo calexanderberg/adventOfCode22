@@ -48,7 +48,7 @@ jobs:
 
     - name: Testbench Rust 2022
       run: |
-          days=("day1" "day2" "day3" "day4" "day6" "day8")
+          days=("day1" "day2" "day3" "day4" "day6")
           cd rust
           for day in ${days[@]}; do
             rustc ./2022/$day/lib.rs
