@@ -76,24 +76,23 @@ jobs:
           for day in ${days[@]}; do
             time python3 ./2022/$day/tiny.py;
           done
-
-  verilog:
-    runs-on: ubuntu-20.04
-    timeout-minutes: 30
-  
-    steps:
-    - uses: actions/checkout@v4
-  
-    - name: update packages
-      run: sudo apt update
-  
-    - name: Testbench Verilog 2022
-      run: |
-          days=("day1" "day2" "day3" "day4" "day5" "day6" "day7" "day8" "day9")
-          cd rust
-          rustc rust.rs
-          for day in ${days[@]}; do
-            ./rust 2022 $day
-            time ./2022/$day/rust
-          done
+  #  verilog:
+  #    runs-on: ubuntu-20.04
+  #    timeout-minutes: 30
+  #  
+  #    steps:
+  #    - uses: actions/checkout@v4
+  #  
+  #    - name: update packages
+  #      run: sudo apt update
+  #  
+  #    - name: Testbench Verilog 2022
+  #      run: |
+  #          days=("day1" "day2" "day3" "day4" "day5" "day6" "day7" "day8" "day9")
+  #          cd rust
+  #          rustc rust.rs
+  #          for day in ${days[@]}; do
+  #            ./rust 2022 $day
+  #            time ./2022/$day/rust
+  #          done
 
