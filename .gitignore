@@ -111,3 +111,7 @@ dmypy.json
 .pyre/
 .pytype/
 cython_debug/
+
+
+# Verilator
+obj_dir
