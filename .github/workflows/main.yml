@@ -54,6 +54,15 @@ jobs:
             time ./lib
           done
 
+    - name: Testbench Rust 2024
+      run: |
+          days=("day4")
+          cd rust
+          for day in ${days[@]}; do
+            rustc ./2024/$day/lib.rs
+            time ./lib
+          done
+
   tinygrad:
     runs-on: ubuntu-20.04
     timeout-minutes: 30
