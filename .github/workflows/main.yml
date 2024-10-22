@@ -54,12 +54,12 @@ jobs:
             time ./lib
           done
 
-    - name: Testbench Rust 2024
+    - name: Testbench Rust 2023
       run: |
           days=("day4")
           cd rust
           for day in ${days[@]}; do
-            rustc ./2024/$day/lib.rs
+            rustc ./2023/$day/lib.rs
             time ./lib
           done
 
