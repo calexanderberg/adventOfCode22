@@ -84,6 +84,24 @@ jobs:
           for day in ${days[@]}; do
             time python3 ./2022/$day/tiny.py;
           done
+
+  python:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 30
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: update packages
+      run: sudo apt update
+
+    - name: Testbench Python 2024
+      run: |
+          days=("day1")
+          cd python
+          for day in ${days[@]}; do
+            time python3 ./2024/$day/lib.py;
+          done
   #  verilog:
   #    runs-on: ubuntu-20.04
   #    timeout-minutes: 30
