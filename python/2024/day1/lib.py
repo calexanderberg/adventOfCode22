@@ -1,20 +1,12 @@
-def part1(left, right) -> int:
-    left.sort()
-    right.sort()
-    return sum([abs(x-y) for x,y in zip(left, right)])
+def part1(left: list[int], right: list[int]) -> int:
+    return sum([ abs(x-y) for x,y in zip(sorted(left), sorted(right)) ])
 
-def part2(left, right) -> int:
+def part2(left: list[int], right: list[int]) -> int:
     return sum([ x * right.count(x) for x in left ])
 
-def readfile(filename):
-    right_arr, left_arr = [], []
+def readfile(filename: str):
     with open(filename, "r") as file:
-        for line in file:
-            left, right = map(int, line.split())
-            left_arr.append(left)
-            right_arr.append(right)
-    return left_arr, right_arr
-
+        return zip(*(map(int, line.split()) for line in file))
 
 file = "./2024/inputs/day1.txt"
 left, right = readfile(file)
